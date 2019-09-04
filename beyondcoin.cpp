@@ -87,7 +87,7 @@ class CNode {
   }
  
   void GotVersion() {
-    // printf("\n%s: version %i\n", ToString(you).c_str(), nVersion);
+    printf("\n%s: version %i\n", ToString(you).c_str(), nVersion);
     if (vAddr) {
       BeginMessage("getaddr");
       EndMessage();
@@ -98,7 +98,7 @@ class CNode {
   }
 
   bool ProcessMessage(string strCommand, CDataStream& vRecv) {
-//    printf("%s: RECV %s\n", ToString(you).c_str(), strCommand.c_str());
+    printf("%s: RECV %s\n", ToString(you).c_str(), strCommand.c_str());
     if (strCommand == "version") {
       int64 nTime;
       CAddress addrMe;
@@ -134,7 +134,7 @@ class CNode {
     if (strCommand == "addr" && vAddr) {
       vector<CAddress> vAddrNew;
       vRecv >> vAddrNew;
-      // printf("%s: got %i addresses\n", ToString(you).c_str(), (int)vAddrNew.size());
+      printf("%s: got %i addresses\n", ToString(you).c_str(), (int)vAddrNew.size());
       int64 now = time(NULL);
       vector<CAddress>::iterator it = vAddrNew.begin();
       if (vAddrNew.size() > 1) {
@@ -142,13 +142,13 @@ class CNode {
       }
       while (it != vAddrNew.end()) {
         CAddress &addr = *it;
-//        printf("%s: got address %s\n", ToString(you).c_str(), addr.ToString().c_str(), (int)(vAddr->size()));
+        printf("%s: got address %s\n", ToString(you).c_str(), addr.ToString().c_str(), (int)(vAddr->size()));
         it++;
         if (addr.nTime <= 100000000 || addr.nTime > now + 600)
           addr.nTime = now - 5 * 86400;
         if (addr.nTime > now - 604800)
           vAddr->push_back(addr);
-//        printf("%s: added address %s (#%i)\n", ToString(you).c_str(), addr.ToString().c_str(), (int)(vAddr->size()));
+        printf("%s: added address %s (#%i)\n", ToString(you).c_str(), addr.ToString().c_str(), (int)(vAddr->size()));
         if (vAddr->size() > 1000) {doneAfter = 1; return true; }
       }
       return false;
@@ -173,13 +173,13 @@ class CNode {
       CMessageHeader hdr;
       vRecv >> hdr;
       if (!hdr.IsValid()) { 
-        // printf("%s: BAD (invalid header)\n", ToString(you).c_str());
+        printf("%s: BAD (invalid header)\n", ToString(you).c_str());
         ban = 100000; return true;
       }
       string strCommand = hdr.GetCommand();
       unsigned int nMessageSize = hdr.nMessageSize;
       if (nMessageSize > MAX_SIZE) { 
-        // printf("%s: BAD (message too large)\n", ToString(you).c_str());
+        printf("%s: BAD (message too large)\n", ToString(you).c_str());
         ban = 100000;
         return true; 
       }
@@ -197,7 +197,7 @@ class CNode {
       vRecv.ignore(nMessageSize);
       if (ProcessMessage(strCommand, vMsg))
         return true;
-//      printf("%s: done processing %s\n", ToString(you).c_str(), strCommand.c_str());
+      printf("%s: done processing %s\n", ToString(you).c_str(), strCommand.c_str());
     } while(1);
     return false;
   }
@@ -243,11 +243,11 @@ public:
         vRecv.resize(nPos + nBytes);
         memcpy(&vRecv[nPos], pchBuf, nBytes);
       } else if (nBytes == 0) {
-        // printf("%s: BAD (connection closed prematurely)\n", ToString(you).c_str());
+        printf("%s: BAD (connection closed prematurely)\n", ToString(you).c_str());
         res = false;
         break;
       } else {
-        // printf("%s: BAD (connection error)\n", ToString(you).c_str());
+        printf("%s: BAD (connection error)\n", ToString(you).c_str());
         res = false;
         break;
       }
@@ -289,7 +289,7 @@ bool TestNode(const CService &cip, int &ban, int &clientV, std::string &clientSV
     clientV = node.GetClientVersion();
     clientSV = node.GetClientSubVersion();
     blocks = node.GetStartingHeight();
-//  printf("%s: %s!!!\n", cip.ToString().c_str(), ret ? "GOOD" : "BAD");
+printf("%s: %s!!!\n", cip.ToString().c_str(), ret ? "GOOD" : "BAD");
     return ret;
   } catch(std::ios_base::failure& e) {
     ban = 0;
@@ -299,7 +299,7 @@ bool TestNode(const CService &cip, int &ban, int &clientV, std::string &clientSV
 
 /*
 int main(void) {
-  CService ip("beyondcoin.sipa.be", 14333, true);
+  CService ip("dnsseed.beyonddata.llc", 10333, true);
   vector<CAddress> vAddr;
   vAddr.clear();
   int ban = 0;
