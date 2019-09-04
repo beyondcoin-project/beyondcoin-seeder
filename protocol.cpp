@@ -10,7 +10,6 @@
 #include "util.h"
 #include "netbase.h"
 
-
 #ifndef WIN32
 # include <arpa/inet.h>
 #endif
@@ -22,7 +21,7 @@ static const char* ppszTypeName[] =
     "block",
 };
 
-unsigned char pchMessageStart[4] = { 0xf9, 0xbe, 0xb4, 0xd9 };
+unsigned char pchMessageStart[4] = { 0x9c, 0xd2, 0xc0, 0xa7 };
 
 CMessageHeader::CMessageHeader()
 {
@@ -78,8 +77,6 @@ bool CMessageHeader::IsValid() const
 
     return true;
 }
-
-
 
 CAddress::CAddress() : CService()
 {
