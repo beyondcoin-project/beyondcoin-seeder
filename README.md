@@ -5,8 +5,8 @@ Beyondcoin-seeder is a crawler for the Beyondcoin network, which exposes a list
 of reliable nodes via a built-in DNS server.
 
 Features:
-* regularly revisits known nodes to check their availability
-* bans nodes after enough failures, or bad behaviour
+* regularly revisits known nodes to check their availability.
+* bans nodes after enough failures, or bad behaviour.
 * accepts nodes down to v0.3.19 to request new IP addresses from,
   but only reports good post-v0.3.24 nodes.
 * keeps statistics over (exponential) windows of 2 hours, 8 hours,
@@ -28,7 +28,7 @@ to for example vps.example.com:
 
 > $ dig -t NS dnsseed.example.com
 
-##### ANSWER SECTION
+#### ANSWER SECTION
 > dnsseed.example.com.   86400    IN      NS     vps.example.com.
 
 On the system vps.example.com, you can now run dnsseed:
@@ -41,12 +41,11 @@ e-mail address (with the @ part replaced by .) using -m.
 COMPILING
 ---------
 Compiling will require boost and ssl.  On debian systems, these are provided
-by `libboost-dev` and `libssl-dev` respectively.
+by <`libboost-dev`> and <`libssl-dev`> respectively.
 
 > $ make
 
-This will produce the `dnsseed` binary.
-
+This will produce the <`dnsseed`>binary.
 
 RUNNING AS NON-ROOT
 -------------------
