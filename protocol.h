@@ -18,7 +18,8 @@
 extern bool fTestNet;
 static inline unsigned short GetDefaultPort(const bool testnet = fTestNet)
 {
-    return testnet ? 114333 : 14333;
+    // TODO check this again
+    return testnet ? 14333 : 14333;
 }
 
 //
@@ -90,8 +91,7 @@ class CAddress : public CService
 
         void print() const;
 
-    // TODO: make private (improves encapsulation)
-    public:
+    private:
         uint64 nServices;
 
         // disk and network only
@@ -117,9 +117,8 @@ class CInv
         const char* GetCommand() const;
         std::string ToString() const;
         void print() const;
-
-    // TODO: make private (improves encapsulation)
-    public:
+    
+    private:
         int type;
         uint256 hash;
 };
