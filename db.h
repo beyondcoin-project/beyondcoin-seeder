@@ -16,7 +16,7 @@
 
 static inline int GetRequireHeight(const bool testnet = fTestNet)
 {
-    return testnet ? 500000 : 350000;
+    return testnet ? 0 : 0; /* Populate the mainnet block height once there are blocks */
 }
 
 std::string static inline ToString(const CService &ip) {
@@ -60,7 +60,6 @@ public:
   bool fGood;
   uint64_t services;
 };
-
 
 class CAddrInfo {
 private:
