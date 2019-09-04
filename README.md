@@ -41,11 +41,11 @@ e-mail address (with the @ part replaced by .) using -m.
 COMPILING
 ---------
 Compiling will require boost and ssl.  On debian systems, these are provided
-by <`libboost-dev`> and <`libssl-dev`> respectively.
+by `libboost-dev` and `libssl-dev` respectively.
 
 > $ make
 
-This will produce the <`dnsseed`>binary.
+This will produce the `dnsseed` binary.
 
 RUNNING AS NON-ROOT
 -------------------
