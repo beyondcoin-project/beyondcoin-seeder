@@ -90,7 +90,8 @@ class CAddress : public CService
 
         void print() const;
 
-    private:
+    // TODO: make private (improves encapsulation)
+    public:
         uint64 nServices;
 
         // disk and network only
@@ -117,7 +118,8 @@ class CInv
         std::string ToString() const;
         void print() const;
     
-    private:
+    // TODO: make private (improves encapsulation)
+    public:
         int type;
         uint256 hash;
 };
