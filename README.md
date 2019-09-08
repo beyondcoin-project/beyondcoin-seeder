@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Tech1k/beyondcoin-seeder.svg?branch=master)](https://travis-ci.org/Tech1k/beyondcoin-seeder)
+
 beyondcoin-seeder
 ==============
 
