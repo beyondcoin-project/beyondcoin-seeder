@@ -159,7 +159,10 @@ public:
         filter_whitelist.insert(NODE_NETWORK_LIMITED | NODE_WITNESS | NODE_BLOOM);
     }
     if (host != NULL && ns == NULL) showHelp = true;
-    if (showHelp) fprintf(stderr, help, argv[0]);
+    if (showHelp) {
+      fprintf(stderr, help, argv[0]);
+      exit(0);
+    }
   }
 };
 
