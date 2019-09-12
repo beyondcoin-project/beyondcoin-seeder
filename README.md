@@ -9,12 +9,12 @@ of reliable nodes via a built-in DNS server.
 Features:
 * Regularly revisits known nodes to check their availability.
 * Bans nodes after enough failures, or bad behaviour.
-* Accepts nodes down to v0.3.19 to request new IP addresses from,
-  but only reports good post-v0.3.24 nodes.
+* Accepts nodes down to v0.8.0 to request new IP addresses from,
+  but only reports good post-v0.12.0 nodes.
 * Keeps statistics over (exponential) windows of 2 hours, 8 hours,
   1 day and 1 week, to base decisions on.
 * Very low memory (a few tens of megabytes) and cpu requirements.
-* Crawlers run in parallel (by default 24 threads simultaneously).
+* Crawlers run in parallel (by default 96 threads simultaneously).
 
 REQUIREMENTS
 ------------
