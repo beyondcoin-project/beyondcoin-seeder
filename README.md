@@ -1,16 +1,16 @@
-[![Build Status](https://travis-ci.org/Tech1k/beyondcoin-seeder.svg?branch=master)](https://travis-ci.org/Tech1k/beyondcoin-seeder)
+[![Build Status](https://travis-ci.org/beyondcoin-project/beyondcoin-seeder.svg?branch=master)](https://travis-ci.org/beyondcoin-project/beyondcoin-seeder)
 
-beyondcoin-seeder
-==============
+Beyondcoin-Seeder
+=================
 
-Beyondcoin-seeder is a crawler for the Beyondcoin network, which exposes a list
+The Beyondcoin-Seeder is a crawler for the Beyondcoin network, which exposes a list
 of reliable nodes via a built-in DNS server.
 
 Features:
 * Regularly revisits known nodes to check their availability.
 * Bans nodes after enough failures, or bad behaviour.
-* Accepts nodes down to v0.8.0 to request new IP addresses from,
-  but only reports good post-v0.12.0 nodes.
+* Accepts nodes down to v0.15.1 to request new IP addresses from,
+  but only reports good post-v0.15.1 nodes.
 * Keeps statistics over (exponential) windows of 2 hours, 8 hours,
   1 day and 1 week, to base decisions on.
 * Very low memory (a few tens of megabytes) and cpu requirements.
