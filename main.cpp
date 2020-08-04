@@ -406,8 +406,8 @@ extern "C" void* ThreadStats(void*) {
   return nullptr;
 }
 
-static const string mainnet_seeds[] = {"dnsseed.beyonddata.llc", ""};
-static const string testnet_seeds[] = {"testnet-seed.beyonddata.llc", ""};
+static const string mainnet_seeds[] = {"dnsseed.beyondcoin.io", "bynd-main-dns1.beyondcoin.io", "bynd-main-dns2.beyondcoin.io", "bynd-main-dns3.beyondcoin.io", ""};
+static const string testnet_seeds[] = {"testnet-seed.beyondcoin.io", "bynd-test-dns1.beyondcoin.io", "bynd-test-dns2.beyondcoin.io", ""};
 static const string *seeds = mainnet_seeds;
 
 extern "C" void* ThreadSeeder(void*) {
